@@ -1,6 +1,7 @@
 #!/bin/python3
 from collections import deque
 
+
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
     Returns a list satisfying the following properties:
@@ -16,12 +17,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ```
     may give the output
     ```
-    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny', 'boney', 'money']
+    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny',
+    'boney', 'money']
     ```
     but the possible outputs are not unique,
     so you may also get the output
     ```
-    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey', 'honey', 'money']
+    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey',
+    'honey', 'money']
     ```
     (We cannot use doctests here because the outputs are not unique.)
 
@@ -92,4 +95,3 @@ def _adjacent(word1, word2):
         return differ == 1
     else:
         return False
-
