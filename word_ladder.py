@@ -33,6 +33,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
     if start_word == end_word:
         return [start_word]
+
     else:
         stack = []
         stack.append(start_word)
@@ -41,14 +42,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
         with open(dictionary_file) as df:
             dfl = [word.strip() for word in df.readlines()]
+
             while q:
                 s = q.popleft()
                 dflc = dfl.copy()
+
                 for word in dflc:
                     if _adjacent(word, s[-1]):
                         if word == end_word:
                             s.append(word)
                             return s
+
                         t = s.copy()
                         t.append(word)
                         q.append(t)
@@ -71,8 +75,10 @@ def verify_word_ladder(ladder):
                 if not (_adjacent(ladder[i-1], ladder[i])):
                     return False
             return True
+
         elif len(ladder) == 1:
             return True
+
     else:
         return False
 
@@ -92,6 +98,8 @@ def _adjacent(word1, word2):
         for i in range(len(word1)):
             if word1[i] != word2[i]:
                 differ += 1
+
         return differ == 1
+
     else:
         return False
